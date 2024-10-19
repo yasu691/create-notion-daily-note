@@ -1,0 +1,11 @@
+[project]
+name = "create-notion-daily-note"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "notion-client>=2.2.1",
+    "pytz>=2024.2",
+    "ruff>=0.7.0",
+]
