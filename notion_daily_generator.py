@@ -6,6 +6,7 @@ import pytz
 # Notion APIクライアントの初期化
 notion = Client(auth=os.environ.get("NOTION_API_KEY"))
 DATABASE_ID = os.environ.get("DATABASE_ID", "")
+TEMPLATE_ID = os.environ.get("TEMPLATE_ID", "")
 
 # 日本時間の現在時刻を取得
 now = datetime.now(pytz.timezone("Asia/Tokyo"))
@@ -49,6 +50,17 @@ def main():
                         "start": YYYYMMDD,
                         "end": None
                     }
+                }
+            },
+            # ページ作成時にテンプレートを指定
+            template_mention={
+                "type": "template_mention",
+                "template_mention": {
+                    "type": "page_mention",
+                    "page": {
+                        "id": TEMPLATE_ID
+                    }
+
                 }
             }
         )
